@@ -1,0 +1,15 @@
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\bin\Debug\net7.0\DocsProcess.Infra.deps.json
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\bin\Debug\net7.0\DocsProcess.Infra.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\bin\Debug\net7.0\DocsProcess.Infra.pdb
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\bin\Debug\net7.0\DocsProcess.Core.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\bin\Debug\net7.0\DocsProcess.Core.pdb
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.csproj.AssemblyReference.cache
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.AssemblyInfoInputs.cache
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.AssemblyInfo.cs
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.csproj.CoreCompileInputs.cache
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.csproj.CopyComplete
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\refint\DocsProcess.Infra.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\DocsProcess.Infra.pdb
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Infra\obj\Debug\net7.0\ref\DocsProcess.Infra.dll

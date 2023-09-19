@@ -1,0 +1,12 @@
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\bin\Debug\net7.0\DocsProcess.Core.deps.json
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\bin\Debug\net7.0\DocsProcess.Core.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\bin\Debug\net7.0\DocsProcess.Core.pdb
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.AssemblyInfoInputs.cache
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.AssemblyInfo.cs
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.csproj.CoreCompileInputs.cache
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\refint\DocsProcess.Core.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.pdb
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\ref\DocsProcess.Core.dll
+C:\Users\wtemp\OneDrive\Documentos\DocsProcessFacil\Aplicativo\DocsProcess\DocsProcess.Core\obj\Debug\net7.0\DocsProcess.Core.csproj.AssemblyReference.cache
