@@ -60,7 +60,7 @@ namespace DocsProcess.Core.Contexts.AccountContext.UseCases.Create
                 {
                     return new Response("Este e-mail ja está em uso", 400);
                 }
-            }
+            } 
             catch
             {
                 return new Response("Falha ao verificar e-mail cadastrado no banco", 500);
