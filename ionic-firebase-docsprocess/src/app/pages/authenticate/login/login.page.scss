@@ -11,7 +11,7 @@ ion-content {
 
     --ion-text-color: #fff;
 
-    
+
     ion-list {
         --ion-background-color: rgba(255, 255, 255, 0.1);
         background-color: rgba(255, 255, 255, 0.1);
@@ -23,5 +23,45 @@ ion-content {
         --background-activated: rgba(255, 255, 255, 0);
         --highlight-color-focused: rgba(255, 255, 255, 0.1);
         --background: transparent;
+    }
+
+    ion-card {
+        background-color: rgba(255, 255, 255, 0.0);
+        border-radius: 5px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+
+        @media screen {
+            @media (min-width:480px) {
+                width: 100%;
+            }
+
+            @media (min-width:768px) {
+                width: 50%;
+            }
+
+            @media (min-width:1024px) {
+                width: 40%;
+            }
+
+            @media (min-width:1200px) {
+                width: 30%;
+            }
+        }
+    }
+    .img-logo {
+        width: 130px;
+        display: block;
+        margin: 0 auto;
+    }
+    .img-fundo {
+        position: absolute;
+        background-image: url("../../../../assets/document1.png"),  url("../../../../assets/persons.png"),;
+        width: 100%;
+        height: 100%;
+        background-position: center right, center left ; 
+        background-repeat: no-repeat; 
+        background-size: 30%; 
     }
 }

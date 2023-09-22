@@ -4,29 +4,37 @@
     Docs Process
   </h1>
   <br><br>
-  <ion-list lines="none">
-    <form [formGroup]="form">
-      <ion-item class="item-login">
-        <ion-label position="stacked">E-mail</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
+  <div class="img-fundo">
+  </div>
 
-      <ion-item>
-        <ion-label position="stacked">Senha</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
-    </form>
-  </ion-list>
-  <br>
-  <ion-button ion-item color="dark" fill="outline" shape="round" expand="full" size="large" (click)="submit()">
-    Entrar
-  </ion-button>
-  <br>
-  <ion-button ion-item color="dark" expand="block" (click)="signInWithGoogle()">
-    <ion-icon slot="start" name="logo-google"></ion-icon>&nbsp;&nbsp;LOGIN COM GOOGLE
-  </ion-button>
-  <br>
-  <ion-button ion-item color="dark" fill="clear" expand="full" (click)="goToSignup()">
-    Ainda não sou cadastrado
-  </ion-button>
+  <ion-card>
+    <ion-card-content>
+      <img class="img-logo" src="../../../../assets/iconDocProcess.png" />
+      <ion-list lines="none">
+        <form [formGroup]="form">
+          <ion-item class="item-login">
+            <ion-label position="stacked">E-mail</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Senha</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </form>
+      </ion-list>
+      <br>
+      <ion-button ion-item color="dark" fill="outline" shape="round" expand="full" size="large" (click)="submit()">
+        Entrar
+      </ion-button>
+      <br>
+      <ion-button ion-item color="dark" expand="block" (click)="signInWithGoogle()">
+        <ion-icon slot="start" name="logo-google"></ion-icon>&nbsp;&nbsp;LOGIN COM GOOGLE
+      </ion-button>
+      <br>
+      <ion-button ion-item color="dark" fill="clear" expand="full" (click)="goToSignup()">
+        Ainda não sou cadastrado
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
