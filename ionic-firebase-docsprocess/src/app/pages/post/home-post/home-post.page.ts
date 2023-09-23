@@ -18,16 +18,11 @@ export class HomePostPage implements OnInit {
   constructor(
     private toastCtrl: ToastController,
     private navCtrl: NavController,
-    private alertCtrl: AlertController,
     private postLocalService: PostLocalService,
     private postRemoteService: PostRemoteService,
-    private actionSheetCtrl: ActionSheetController,
-    private userLocalService: UserLocalService
   ) { }
 
   ngOnInit() {
-    var user = this.userLocalService.get();
-    if (user) this.user = JSON.parse(user);
     const img = this.postLocalService.get();
     if (img) this.showMessage("Você tem uma publicação não salva");
     this.posts = this.postRemoteService.getList().valueChanges();
@@ -39,7 +34,7 @@ export class HomePostPage implements OnInit {
         {
           icon: "send",
           handler: () => {
-            this.navCtrl.navigateForward("/make-post");
+            this.navCtrl.navigateForward("/home-post/make-post");
           }
         }
       ]
@@ -48,24 +43,4 @@ export class HomePostPage implements OnInit {
   }
 
   
-  async showOptions() {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Opções',
-      buttons: [{
-        text: 'Logout',
-        role: 'destructive',
-        icon: 'power',
-        handler: () => {
-          this.userLocalService.delete();
-          this.navCtrl.navigateRoot("/login");
-        }
-      }, {
-        text: 'Cancelar',
-        icon: 'close',
-        role: 'cancel',
-      }]
-    });
-    await actionSheet.present();
-  }
-
 }

@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Post } from 'src/app/models/post.model';
 import { PostLocalService } from 'src/app/services/post/post-local.service';
-import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-take-photo',
   templateUrl: './take-photo.page.html',
@@ -43,7 +42,7 @@ export class TakePhotoPage implements AfterViewInit {
     video.classList.add("flash");
 
     setTimeout(() => {
-      this.navCtrl.navigateForward('/make-post');
+      this.navCtrl.navigateForward('/home-post/make-post');
     }, 1000);
   }
 }

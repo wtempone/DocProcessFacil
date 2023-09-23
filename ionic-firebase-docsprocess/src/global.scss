@@ -35,14 +35,14 @@
 
 .logo-white {
     font-family: 'Tangerine', cursive;
-    color: #FFF;
+    color: var(var(--ion-color-light));
     opacity: 0.8;
     font-size: 56px;
 }
 
 .logo-white-header {
     font-family: 'Tangerine', cursive;
-    color: #FFF;
+    color: var(--ion-color);
     opacity: 0.8;
     font-size: 36px;
 }

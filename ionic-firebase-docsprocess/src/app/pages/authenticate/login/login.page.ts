@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
         if (data.user) {
           this.userLocalService.set(new User('', data.user.email, ''));
         }
-        this.navCtrl.navigateRoot('home-post');
+        this.navCtrl.navigateRoot('home');
       })
       .catch((err) => {
         loading.dismiss();
@@ -75,7 +75,7 @@ export class LoginPage implements OnInit {
         if (data.user) {
           this.userLocalService.set(new User(data.user.displayName, data.user.email, data.user.photoURL));
         }
-        this.navCtrl.navigateRoot('home-post');
+        this.navCtrl.navigateRoot('home');
       })
       .catch((err) => {
         var erro = "";
@@ -84,11 +84,11 @@ export class LoginPage implements OnInit {
       });
   }
 
-  async showMessage(message: string, type: string) {
+  async showMessage(message: string, type: string, position: "top" | "bottom" | "middle" = "bottom" ) {
     const toast = await this.toastCtrl.create({
       message: message,
       duration: 4000,
-      position: 'bottom',
+      position: position,
       color: type
     });
     toast.present();

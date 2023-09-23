@@ -92,7 +92,7 @@ export class MakePostPage implements OnInit {
   }
 
   showMap() {
-    this.navCtrl.navigateForward("/map-post");
+    this.navCtrl.navigateForward("/home-post/map-post");
   }
 
   async submit() {
