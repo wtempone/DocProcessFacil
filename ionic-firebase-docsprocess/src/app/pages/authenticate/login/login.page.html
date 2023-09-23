@@ -16,11 +16,24 @@
             <ion-label position="stacked">E-mail</ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
-
+          <div>
+            <div *ngFor="let validation of validations.email">
+              <div class="error-message" *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+                <span>{{ validation.message }}</span>
+              </div>
+            </div>
+          </div>
           <ion-item>
             <ion-label position="stacked">Senha</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
+          <div>
+            <div *ngFor="let validation of validations.password">
+              <div class="error-message" *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+                <span>{{ validation.message }}</span>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
       <br>
@@ -34,6 +47,9 @@
       <br>
       <ion-button ion-item color="dark" fill="clear" expand="full" (click)="goToSignup()">
         Ainda não sou cadastrado
+      </ion-button>
+      <ion-button ion-item color="dark" fill="clear" expand="full" (click)="goToResetPassord()">
+        Esqueci minha senha
       </ion-button>
     </ion-card-content>
   </ion-card>

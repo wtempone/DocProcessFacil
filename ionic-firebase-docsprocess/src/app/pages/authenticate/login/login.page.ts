@@ -20,14 +20,30 @@ export class LoginPage implements OnInit {
     private toastCtrl: ToastController,
     private authenticateService: AuthenticateService,
     private userLocalService: UserLocalService,
-    private platform: Platform
-
   ) {
     this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.email
+      ])],
+      password: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(8)
+      ])],
     })
   }
+  validations = {
+    'email': [
+      { type: 'required', message: 'Informe seu e-mail' },
+      { type: 'minlength', message: 'Seu e-mail deve ter no mínimo 3 caracteres' },
+      { type: 'email', message: 'Informe um e-mail válido' },
+    ],
+    'password': [
+      { type: 'required', message: 'Informe sua senha' },
+      { type: 'minlength', message: 'A senha deve ter no mínimo 8 caracteres' },
+    ],
+  };
 
   ngOnInit() {
   }
@@ -46,32 +62,43 @@ export class LoginPage implements OnInit {
         this.navCtrl.navigateRoot('home-post');
       })
       .catch((err) => {
-        console.log(err);
         loading.dismiss();
-        this.showMessage("Usuário ou senha inválidos");
+        var erro = "";
+        if (err.code) erro = this.authenticateService.verifyErroCode(err.code);
+        this.showMessage(erro, "danger");
       });
   }
 
   async signInWithGoogle() {
     this.authenticateService.signInWithGoogle()
       .then((data) => {
-        console.log(data);
         if (data.user) {
           this.userLocalService.set(new User(data.user.displayName, data.user.email, data.user.photoURL));
         }
         this.navCtrl.navigateRoot('home-post');
       })
       .catch((err) => {
-        this.showMessage("Usuário ou senha inválidos");
+        var erro = "";
+        if (err.code) erro = this.authenticateService.verifyErroCode(err.code);
+        this.showMessage(erro, "danger");
       });
   }
 
-  async showMessage(message: string) {
-    const toast = await this.toastCtrl.create({ message: message, duration: 3000 });
-    toast.present;
+  async showMessage(message: string, type: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 4000,
+      position: 'bottom',
+      color: type
+    });
+    toast.present();
   }
 
   async goToSignup() {
     this.navCtrl.navigateForward('sign-up');
+  }
+
+  async goToResetPassord(){
+    this.navCtrl.navigateForward('reset-password');
   }
 }

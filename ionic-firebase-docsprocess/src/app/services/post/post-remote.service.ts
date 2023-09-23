@@ -21,7 +21,7 @@ export class PostRemoteService {
   create(rec: Post) {
     if (!this.ListRef) this.ListRef = this.db.list(`/${this.DocName}`);
     return this.ListRef.push({
-      name: rec.description,
+      description: rec.description,
       image: rec.image,
       location: rec.location,
     });
@@ -39,7 +39,7 @@ export class PostRemoteService {
 
   update(id: any, rec: Post) {
     return this.Ref.update({
-      name: rec.description,
+      description: rec.description,
       image: rec.image,
       location: rec.location,
     });
