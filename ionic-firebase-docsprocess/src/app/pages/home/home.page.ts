@@ -85,7 +85,8 @@ export class HomePage implements OnInit {
           role: 'confirm',
           handler: () => {
             this.userLocalService.delete();
-            this.navCtrl.navigateRoot("/login");          }
+            this.navCtrl.navigateRoot("/login");         
+          }
         }
       ]
     });
