@@ -9,10 +9,6 @@ const routes: Routes = [
   { path: 'sign-up', loadChildren: () => import('./pages/authenticate/sign-up/sign-up.module').then(m => m.SignUpPageModule) },
   { path: 'reset-password',loadChildren: () => import('./pages/authenticate/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)},  { path: 'home-appointment', canActivate: [AuthGuard], loadChildren: () => import('./pages/appointment/home-appointment/home-appointment.module').then(m => m.HomeAppointmentPageModule) },
   { path: 'home', canActivate: [AuthGuard],  loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
-  {
-    path: 'teste',
-    loadChildren: () => import('./pages/teste/teste/teste.module').then( m => m.TestePageModule)
-  },
 ];
 
 @NgModule({

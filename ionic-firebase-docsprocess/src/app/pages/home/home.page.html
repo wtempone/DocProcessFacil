@@ -1,7 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <!-- <img src="../../../assets/icon/favicon.png" width="40px" style="display:inline-block" height="40px"/> -->
       <ion-label class="logo-white-header">Docs Process</ion-label>
     </ion-title>
     <ion-buttons slot="start">
@@ -10,18 +9,12 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-item>
-        <ion-button (click)="openSettingsMenu()">
-          <ion-icon name="settings-outline"></ion-icon>
-        </ion-button>
-        <ion-button fill="outline" (click)="showCloseOptions()">
-          Sair
-          <ion-icon name="exit-outline"></ion-icon>
-        </ion-button>
-        <ion-avatar>
-          <img src="{{user.image}}">
-        </ion-avatar>
-      </ion-item>
+      <ion-button (click)="openSettingsMenu()">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="showCloseOptions()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -58,6 +51,16 @@
     </ion-header>
     <ion-content>
       <ion-list>
+        <ion-menu-toggle  menu="settings-menu" >
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="{{user.image}}">
+            </ion-avatar>
+            <ion-label>
+              Editar perfil
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         <ion-menu-toggle menu="settings-menu" auto-hide="true" *ngFor="let p of settingsPage">
           <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath ==='/home/' + p.url">
             <ion-icon [name]="p.icon" slot="start" aria-hidden="true"></ion-icon>

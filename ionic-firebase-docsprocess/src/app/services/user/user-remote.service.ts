@@ -16,11 +16,16 @@ export class UserRemoteService {
     private db: AngularFireDatabase,
   ) { }
   create(rec: User) {
-    if (!this.ListRef) this.ListRef = this.db.list(`/${this.DocName}`);
-    return this.ListRef.push({
-      name: rec.name,
-      image: rec.image,
-      email: rec.email,
+    return this.getByEmail(rec.email!).subscribe(data => {
+      if (data.length == 0) {
+        if (!this.ListRef) this.ListRef = this.db.list(`/${this.DocName}`);
+        return this.ListRef.push({
+          name: rec.name,
+          image: rec.image,
+          email: rec.email,
+        });     
+      }
+      return null;
     });
   }
 

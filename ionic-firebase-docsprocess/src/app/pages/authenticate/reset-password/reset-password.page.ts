@@ -47,7 +47,6 @@ export class ResetPasswordPage implements OnInit {
 
     this.userRemoteService.getByEmail(this.form.controls['email'].value).subscribe(data => {
       if (data.length > 0) {
-        debugger
         var user = data[0] as User;
         this.authenticateService.sendPasswordResetEmail(user.email!)
           .then(() => {

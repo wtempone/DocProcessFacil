@@ -15,6 +15,11 @@ export class HomePage implements OnInit {
   selectedPath = '';
   pages = [
     {
+      title: 'Templates',
+      url: 'home-template',
+      icon: 'library-outline'
+    },
+    {
       title: 'Posts',
       url: 'home-post',
       icon: 'newspaper-outline'
