@@ -1,13 +1,92 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>make-template</ion-title>
+    <ion-title>
+      <ion-label>Criação de Template</ion-label>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="library-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openInfoMenu()">
+        <ion-icon slot="icon-only" name="id-card-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">make-template</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-router-outlet>
+
+  <ion-menu  menuId="info-menu" side="end" contentId="template-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Informações
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-toggle menu="info-menu">
+            <ion-button>
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content style="width: 500px;">
+      <ion-title>
+        Tipificações
+      </ion-title>
+      <ion-accordion-group>
+        <ion-accordion *ngFor="let t of tipifications" [value]="t.requestId" toggleIcon="folder-outline"
+          toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <ion-label>{{t.requestId}}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-title>
+              Páginas
+            </ion-title>
+            <ion-accordion-group>
+              <ion-accordion *ngFor="let r of t.result; index as pageIndex" [value]="pageIndex"
+                toggleIcon="reader-outline" toggleIconSlot="start">
+                <ion-item slot="header" color="light">
+                  <ion-label>{{getTag(r.tags,'subtype')}} : {{r.stdType}}</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <ion-title>
+                    Dados
+                  </ion-title>
+                  <ion-list>
+                    <ion-menu-toggle menu="info-menu" auto-hide="true" *ngFor="let f of r.fields">
+                      <ion-item (click)="insertField(f,t.requestId,pageIndex)" routerDirection="root"
+                        [class.active-item]="fieldSelected + f.field">
+                        <!-- <ion-icon name="color-wand-outline" slot="start" aria-hidden="true"></ion-icon> -->
+                        <ion-label>
+                          {{f.name}} - {{f.value}}
+                        </ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                  </ion-list>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
+
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-content id="template-content">
+    <div class="document-editor">
+      <div class="document-editor__toolbar"></div>
+      <div class="document-editor__editable-container">
+        <div class="document-editor__editable">
+          <p>The initial editor data.</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-router-outlet>

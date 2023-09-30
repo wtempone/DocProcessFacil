@@ -64,9 +64,11 @@ export class HomePage implements OnInit {
   }
 
   openMainMenu() {
+    this.menuCtrl.enable(true, 'main-menu');
     this.menuCtrl.open('main-menu');
   }
   openSettingsMenu()  {
+    this.menuCtrl.enable(true, 'settings-menu');
     this.menuCtrl.open('settings-menu');
   }
 
