@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-label>Criação de Template</ion-label>
+      <ion-label>{{template ? 'Editando template: ' + template.name : 'Criação de template'}}</ion-label>
     </ion-title>
     <ion-buttons slot="start">
       <ion-button>
@@ -9,20 +9,28 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="openInfoMenu()">
+      <ion-button (click)="openPackMenu()">
+        <ion-icon  slot="icon-only" name="file-tray-stacked-outline"></ion-icon>
+      </ion-button>     
+       <ion-button (click)="openInfoMenu()">
         <ion-icon slot="icon-only" name="id-card-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="saveTamplate()">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="showCloseOptions()">
+        <ion-icon name="close-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-router-outlet>
-
-  <ion-menu  menuId="info-menu" side="end" contentId="template-content">
+  <ion-menu menuId="info-menu" side="end" contentId="template-content">
     <ion-header>
       <ion-toolbar>
         <ion-title>
-          Informações
+          Tipificações
         </ion-title>
         <ion-buttons slot="end">
           <ion-menu-toggle menu="info-menu">
@@ -34,9 +42,6 @@
       </ion-toolbar>
     </ion-header>
     <ion-content style="width: 500px;">
-      <ion-title>
-        Tipificações
-      </ion-title>
       <ion-accordion-group>
         <ion-accordion *ngFor="let t of tipifications" [value]="t.requestId" toggleIcon="folder-outline"
           toggleIconSlot="start">
@@ -44,6 +49,13 @@
             <ion-label>{{t.requestId}}</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
+            <ion-buttons slot="end">
+              <ion-menu-toggle menu="info-menu">
+                <ion-button>
+                  <ion-icon name="info-outline"></ion-icon>
+                </ion-button>
+              </ion-menu-toggle>
+            </ion-buttons>
             <ion-title>
               Páginas
             </ion-title>
@@ -52,6 +64,7 @@
                 toggleIcon="reader-outline" toggleIconSlot="start">
                 <ion-item slot="header" color="light">
                   <ion-label>{{getTag(r.tags,'subtype')}} : {{r.stdType}}</ion-label>
+
                 </ion-item>
                 <div class="ion-padding" slot="content">
                   <ion-title>
@@ -59,10 +72,10 @@
                   </ion-title>
                   <ion-list>
                     <ion-menu-toggle menu="info-menu" auto-hide="true" *ngFor="let f of r.fields">
-                      <ion-item (click)="insertField(f,t.requestId,pageIndex)" routerDirection="root"
+                      <ion-item (click)="insertField(f,r.stdType)" routerDirection="root"
                         [class.active-item]="fieldSelected + f.field">
-                        <!-- <ion-icon name="color-wand-outline" slot="start" aria-hidden="true"></ion-icon> -->
-                        <ion-label>
+                        <ion-icon name="pencil-outline"></ion-icon>
+                                                <ion-label>
                           {{f.name}} - {{f.value}}
                         </ion-label>
                       </ion-item>
@@ -78,6 +91,43 @@
 
     </ion-content>
   </ion-menu>
+
+
+  <ion-menu menuId="pack-menu" side="end" contentId="template-content" >
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Pacote de dados
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-toggle menu="pack-menu">
+            <ion-button>
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content style="width: 700px;">
+
+      <div class="ion-padding">
+        <ion-list>
+          <ion-menu-toggle menu="pack-menu" auto-hide="true" *ngFor="let p of packs">
+            <ion-item (click)="changePack(p)" routerDirection="root"
+              [class.active-item]="selectedPack== p">
+              <ion-icon name="color-wand-outline" slot="start" aria-hidden="true"></ion-icon>
+              <ion-label>
+                {{p.name}} ({{p.tipificacoes.length}})
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+
 
   <ion-content id="template-content">
     <div class="document-editor">

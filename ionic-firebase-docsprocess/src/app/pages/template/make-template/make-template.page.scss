@@ -2,6 +2,9 @@ ion-router-outlet {
     margin-top:  60px;
 }
 
+ion-item {
+    font-size: 10px;
+}
 
 
 .document-editor {
@@ -10,7 +13,7 @@ ion-router-outlet {
 
     /* Set vertical boundaries for the document editor. */
     max-height: 700px;
-
+    padding-inline: 20px;
     /* This element is a flex container for easier rendering. */
     display: flex;
     flex-flow: column nowrap;

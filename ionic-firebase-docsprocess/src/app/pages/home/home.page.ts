@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
       icon: 'person'
     }
   ];
-  public user: User = new User('', '', 'https://placehold.it/80');
+  public user: User = new User('', '', 'https://placehold.it/80', null);
 
   constructor(
     private router: Router,

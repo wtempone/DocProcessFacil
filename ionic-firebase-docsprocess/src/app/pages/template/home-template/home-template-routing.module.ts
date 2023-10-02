@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'make-template',
     loadChildren: () => import('../make-template/make-template.module').then(m => m.MakeTemplatePageModule)
   },
+  {
+    path: 'make-template/:id',
+    loadChildren: () => import('../make-template/make-template.module').then(m => m.MakeTemplatePageModule)
+  },
 
   {
     path: 'list-template',

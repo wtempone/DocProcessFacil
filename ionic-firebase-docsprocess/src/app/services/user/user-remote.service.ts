@@ -23,7 +23,7 @@ export class UserRemoteService {
           name: rec.name,
           image: rec.image,
           email: rec.email,
-        });     
+        });
       }
       return null;
     });
@@ -41,7 +41,15 @@ export class UserRemoteService {
     );
     return query.valueChanges();
   }
-  
+
+  getKeyByEmail(email: string) {
+    var query = this.db.list(`/${this.DocName}`,
+      users => users
+        .orderByChild('email')
+        .equalTo(email).limitToFirst(1)
+    );
+    return query.snapshotChanges();
+  }
   getList() {
     this.ListRef = this.db.list(`/${this.DocName}`);
     return this.ListRef;

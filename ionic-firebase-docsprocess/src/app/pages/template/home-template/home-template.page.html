@@ -1,16 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>home-template</ion-title>
+    <ion-title>Templates</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">home-template</ion-title>
+      <ion-title>Templates</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-button (click)="newTemplate()">
-    Criar novo template
-  </ion-button>
+
+
+  <ion-card class="add-card" color="light" [routerLink]="['make-template/',]">
+    <ion-card-content class="text-center">
+      <ion-icon  size="large" name="add-circle-outline"></ion-icon>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card color="light" *ngFor="let t of templates"  [routerLink]="['make-template/', t.$key]">
+    <ion-card-header>
+      <ion-card-title>{{t.name}}</ion-card-title>
+      <ion-card-subtitle>{{t.description}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> {{t.body}} </ion-card-content>
+  </ion-card>
+
 </ion-content>

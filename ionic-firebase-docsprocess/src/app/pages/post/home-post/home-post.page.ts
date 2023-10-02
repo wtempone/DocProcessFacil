@@ -13,7 +13,7 @@ import { UserLocalService } from 'src/app/services/user/user-local.service';
 })
 export class HomePostPage implements OnInit {
   posts: Observable<any[]>;
-  public user: User = new User('', '', 'https://placehold.it/80');
+  public user: User = new User('', '', 'https://placehold.it/80', null);
 
   constructor(
     private toastCtrl: ToastController,

@@ -1,6 +1,5 @@
 export class ExternalDataWidgetCommand extends Command {
     execute(params: any): void;
-    _getActualField(): any;
 }
 export class ExternalDataWidget extends Plugin {
     static get requires(): (typeof ExternalDataWidgetUI)[];
@@ -14,7 +13,7 @@ export class ExternalDataWidgetEditing extends Plugin {
     externalDataValue: string;
     init(): void;
     _intervalFetch(): number;
-    _updateWidgetData(externalUrl?: string): Promise<void>;
+    _updateWidgetData(externalUrl?: any): Promise<void>;
     _defineSchema(): void;
     _defineConverters(): void;
 }

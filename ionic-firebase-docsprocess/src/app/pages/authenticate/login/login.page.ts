@@ -4,6 +4,7 @@ import { LoadingController, NavController, Platform, ToastController } from '@io
 import { User } from 'src/app/models/user.model';
 import { AuthenticateService } from 'src/app/services/authenticate/authenticate.service';
 import { UserLocalService } from 'src/app/services/user/user-local.service';
+import { UserRemoteService } from 'src/app/services/user/user-remote.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginPage implements OnInit {
     private toastCtrl: ToastController,
     private authenticateService: AuthenticateService,
     private userLocalService: UserLocalService,
+    private userRemoteService: UserRemoteService,
   ) {
     this.form = this.fb.group({
       email: ['', Validators.compose([
@@ -57,7 +59,8 @@ export class LoginPage implements OnInit {
         loading.dismiss();
         // TODO salvar nome e imagem e depois ler
         if (data.user) {
-          this.userLocalService.set(new User('', data.user.email, ''));
+          this.userLocalService.set(new User('', data.user.email, '', null));
+          this.setUserKey( data.user.email!);
         }
         this.navCtrl.navigateRoot('home');
       })
@@ -68,12 +71,25 @@ export class LoginPage implements OnInit {
         this.showMessage(erro, "danger");
       });
   }
+  setUserKey(email:string) {
+    this.userRemoteService.getKeyByEmail( email! ).subscribe((data)=>{
+      debugger
+      const user =  this.userLocalService.get();
+      if (user) {
+        const userObj = JSON.parse(user);
+        userObj.$key =  data[0].key;
+        this.userLocalService.set(userObj);
+      }
+    });
+  }
 
   async signInWithGoogle() {
     this.authenticateService.signInWithGoogle()
       .then((data) => {
+        
         if (data.user) {
-          this.userLocalService.set(new User(data.user.displayName, data.user.email, data.user.photoURL));
+          this.userLocalService.set(new User(data.user.displayName, data.user.email, data.user.photoURL, null));
+          this.setUserKey( data.user.email!);
         }
         this.navCtrl.navigateRoot('home');
       })

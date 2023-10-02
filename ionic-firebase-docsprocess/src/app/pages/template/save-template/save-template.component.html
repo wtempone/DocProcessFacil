@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Salvar Template</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input type="name" formControlName="name"></ion-input>
+      </ion-item>
+      <div>
+        <div *ngFor="let validation of validations.name">
+          <div class="error-message" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+            <span>{{ validation.message }}</span>
+          </div>
+        </div>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Descrição</ion-label>
+        <ion-input type="description" formControlName="description"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>

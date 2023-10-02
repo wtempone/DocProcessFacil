@@ -1,4 +1,4 @@
-export const retorno1 = {
+export const cliente1r1 = {
   "result": [
     {
       "fields": [
@@ -137,7 +137,7 @@ export const retorno1 = {
   }
 };
 
-export const retorno2 = {
+export const cliente1r2 = {
   "result": [
     {
       "fields": [
@@ -598,8 +598,331 @@ export const retorno2 = {
 };
 
 
+export const cliente2r1 = {
+  "result": [
+    {
+      "fields": [
+        {
+          "name": "cpf",
+          "stdName": "cpf",
+          "value": "36416355000",
+          "score": 0.99
+        },
+        {
+          "name": "data_expedicao",
+          "stdName": "issue_date",
+          "value": "2013-11-28",
+          "score": 0.99
+        },
+        {
+          "name": "data_nascimento",
+          "stdName": "birth_date",
+          "value": "1956-03-04",
+          "score": 0.99
+        },
+        {
+          "name": "doc_origem",
+          "stdName": "origin_document",
+          "value": "CERTIDÃO DE CASAMENTO, Nº: 09803801551979200012048000426655, LIVRO: B.00012, FOLHA: 048",
+          "score": 0.96
+        },
+        {
+          "name": "filiacao_1",
+          "stdName": "parent_1",
+          "value": "MARIA DIMER",
+          "score": 0.94
+        },
+        {
+          "name": "filiacao_2",
+          "stdName": "parent_2",
+          "value": "MANOEL MARTINS DE OLIVEIRA",
+          "score": 0.94
+        },
+        {
+          "name": "naturalidade_cidade",
+          "stdName": "birth_city",
+          "value": "TORRES",
+          "score": 0.94
+        },
+        {
+          "name": "naturalidade_uf",
+          "stdName": "birth_state",
+          "value": "RS",
+          "score": 0.94
+        },
+        {
+          "name": "nome",
+          "stdName": "name",
+          "value": "PEDRO DIMER DE OLIVEIRA",
+          "score": 0.99
+        },
+        {
+          "name": "rg",
+          "stdName": "rg",
+          "value": "1024694778",
+          "score": 0.99
+        }
+      ],
+      "image": "",
+      "type": "documento-pessoal",
+      "stdType": "personal-document",
+      "pageNumber": 1,
+      "tags": [
+        "id=bra-rg-1",
+        "language=pt-BR",
+        "process-type=extraction",
+        "region=back",
+        "std-type=personal-document",
+        "subtype=rg",
+        "type=documento-pessoal"
+      ],
+      "score": 0.84,
+      "tables": [],
+      "processType": "extraction"
+    },
+    {
+      "fields": [
+        {
+          "name": "assinado",
+          "stdName": "signed",
+          "value": "1",
+          "score": 0.77
+        },
+        {
+          "name": "estado_emissor",
+          "stdName": "issuer_state",
+          "value": "RS",
+          "score": 0.97
+        },
+        {
+          "name": "orgao_emissor_primario",
+          "stdName": "primary_issuer_initials",
+          "value": "SSP",
+          "score": 0.98
+        },
+        {
+          "name": "orgao_emissor_secundario",
+          "stdName": "secondary_issuer_initials",
+          "value": "IGP",
+          "score": 0.97
+        }
+      ],
+      "image": "",
+      "type": "documento-pessoal",
+      "stdType": "personal-document",
+      "pageNumber": 1,
+      "tags": [
+        "has=fingerprint",
+        "has=photo",
+        "has=signature",
+        "id=bra-rg-1",
+        "language=pt-BR",
+        "process-type=extraction",
+        "region=front",
+        "std-type=personal-document",
+        "subtype=rg",
+        "type=documento-pessoal"
+      ],
+      "score": 0.84,
+      "tables": [],
+      "processType": "extraction"
+    }
+  ],
+  "requestId": "cLm9rFoK7USwD7eLuiTY9",
+  "elapsedMilliseconds": 3305,
+  "status": {
+    "message": "Success",
+    "code": "S100",
+    "errors": null
+  }
+}
+
+export const cliente3r1 ={
+  "result": [
+    {
+      "fields": [
+        {
+          "name": "assinado",
+          "stdName": "signed",
+          "value": "1",
+          "score": 0.88
+        },
+        {
+          "name": "estado_emissor",
+          "stdName": "issuer_state",
+          "value": "RS",
+          "score": 0.97
+        },
+        {
+          "name": "orgao_emissor_primario",
+          "stdName": "primary_issuer_initials",
+          "value": "SJS",
+          "score": 0.92
+        },
+        {
+          "name": "orgao_emissor_secundario",
+          "stdName": "secondary_issuer_initials",
+          "value": "IGP",
+          "score": 0.92
+        }
+      ],
+      "image": "",
+      "type": "documento-pessoal",
+      "stdType": "personal-document",
+      "pageNumber": 1,
+      "tags": [
+        "has=fingerprint",
+        "has=photo",
+        "has=signature",
+        "id=bra-rg-1",
+        "language=pt-BR",
+        "process-type=extraction",
+        "region=front",
+        "std-type=personal-document",
+        "subtype=rg",
+        "type=documento-pessoal"
+      ],
+      "score": 0.83,
+      "tables": [],
+      "processType": "extraction"
+    }
+  ],
+  "requestId": "6ytkWSoigku5bsAOGPSxV",
+  "elapsedMilliseconds": 1838,
+  "status": {
+    "message": "Success",
+    "code": "S100",
+    "errors": null
+  }
+}
+
+export const cliente3r2 = {
+  "result": [
+    {
+      "fields": [
+        {
+          "name": "cpf",
+          "stdName": "cpf",
+          "value": "",
+          "score": 0.99
+        },
+        {
+          "name": "data_expedicao",
+          "stdName": "issue_date",
+          "value": "2005-01-31",
+          "score": 0.62
+        },
+        {
+          "name": "data_nascimento",
+          "stdName": "birth_date",
+          "value": "1953-06-15",
+          "score": 0.99
+        },
+        {
+          "name": "doc_origem",
+          "stdName": "origin_document",
+          "value": "CERTIDÃO DE CASAMENTO, Nº: 41728, LIVRO: B.86, FOLHA: 163",
+          "score": 0.99
+        },
+        {
+          "name": "filiacao_1",
+          "stdName": "parent_1",
+          "value": "EVA DE ASSUNCAO MACHADO",
+          "score": 0.99
+        },
+        {
+          "name": "filiacao_2",
+          "stdName": "parent_2",
+          "value": "ANTONIO CRISPIM MACHADO",
+          "score": 0.99
+        },
+        {
+          "name": "naturalidade_cidade",
+          "stdName": "birth_city",
+          "value": "ARARANGUA",
+          "score": 0.99
+        },
+        {
+          "name": "naturalidade_uf",
+          "stdName": "birth_state",
+          "value": "SC",
+          "score": 0.99
+        },
+        {
+          "name": "nome",
+          "stdName": "name",
+          "value": "DILSONEI MACHADO",
+          "score": 0.99
+        },
+        {
+          "name": "rg",
+          "stdName": "rg",
+          "value": "7000737366",
+          "score": 0.99
+        }
+      ],
+      "image": "",
+      "type": "documento-pessoal",
+      "stdType": "personal-document",
+      "pageNumber": 1,
+      "tags": [
+        "id=bra-rg-1",
+        "language=pt-BR",
+        "process-type=extraction",
+        "region=back",
+        "std-type=personal-document",
+        "subtype=rg",
+        "type=documento-pessoal"
+      ],
+      "score": 0.86,
+      "tables": [],
+      "processType": "extraction"
+    }
+  ],
+  "requestId": "Z0dxQTSH4EKjD7Jvecxuk",
+  "elapsedMilliseconds": 2364,
+  "status": {
+    "message": "Success",
+    "code": "S100",
+    "errors": null
+  }
+}
+
+
+
+
 export const tipificacoes = {
   tipificacoes: [
-    retorno1, retorno2
+    cliente1r1, cliente1r2
   ]
+}
+
+
+export const packs = {
+  packs: [
+    {
+      packId: 0,
+      name: "GENIVALDO SANTOS CERQUEIRA",
+      tipificacoes: [
+        cliente1r1, cliente1r2
+      ]
+    },
+    {
+      packId: 1,
+      name: "PEDRO DIMER DE OLIVEIRA",
+      tipificacoes: [
+        cliente2r1
+      ]
+    },
+    {
+      packId: 0,
+      name: "DILSONEI MACHADO",
+      tipificacoes: [
+        cliente3r1, cliente3r2
+      ]
+    }
+
+
+  ]
+
 }

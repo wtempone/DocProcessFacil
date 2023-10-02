@@ -19,7 +19,7 @@ export class AuthenticateService {
   async signUnWithEmailAndPassword(email: string, password: string) {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password).then((data) =>{
       if (data.user) {
-        var user = new User(data.user.displayName, data.user.email, data.user.photoURL);
+        var user = new User(data.user.displayName, data.user.email, data.user.photoURL, null);
         this.userRemoteService.create(user);
       }
     })
@@ -32,7 +32,7 @@ export class AuthenticateService {
   async signInWithGoogle() {
     return this.angularFireAuth.signInWithPopup(new GoogleAuthProvider()).then((data)=>{
       if (data.user) {
-        var user = new User(data.user.displayName, data.user.email, data.user.photoURL);
+        var user = new User(data.user.displayName, data.user.email, data.user.photoURL, null);
         this.userRemoteService.create(user);
       }
       return data;
