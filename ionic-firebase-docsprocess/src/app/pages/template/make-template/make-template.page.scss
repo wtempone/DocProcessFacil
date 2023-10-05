@@ -138,3 +138,21 @@ Preserve the relative scale, though. */
     margin-right: calc( 2 * var(--ck-spacing-large) );
 }
 
+ion-menu > ion-header > ion-toolbar > ion-title {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card-invisible{
+    display: none;
+}
+.card-tipification {
+    position: absolute;
+    height: 80%;
+    width: 500px;
+    z-index: 30;
+    right: 0px;
+    margin-right: 50px;
+    top: 0px;
+    margin-top: 50px;
+}

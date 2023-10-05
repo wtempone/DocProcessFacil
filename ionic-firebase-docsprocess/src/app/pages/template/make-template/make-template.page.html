@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-label>{{template ? 'Editando template: ' + template.name : 'Criação de template'}}</ion-label>
+      <ion-label>{{template ? template.name : 'Criação de template'}}</ion-label>
     </ion-title>
     <ion-buttons slot="start">
       <ion-button>
@@ -10,13 +10,24 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="openPackMenu()">
-        <ion-icon  slot="icon-only" name="file-tray-stacked-outline"></ion-icon>
-      </ion-button>     
-       <ion-button (click)="openInfoMenu()">
-        <ion-icon slot="icon-only" name="id-card-outline"></ion-icon>
+        Pastas de Arquivos 
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="toglePanelTipification()">
+        Dados Tipificados
+        <ion-icon  name="id-card-outline"></ion-icon>
       </ion-button>
       <ion-button (click)="saveTamplate()">
-        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+        Salvar Template
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openDocsRequired()">
+        Importar Documento
+        <ion-icon name="document-attach-outline"></ion-icon>
+      </ion-button>      
+      <ion-button (click)="documentReview()">
+        Revisão de documentos
+        <ion-icon name="document-attach-outline"></ion-icon>
       </ion-button>
       <ion-button (click)="showCloseOptions()">
         <ion-icon name="close-outline"></ion-icon>
@@ -26,74 +37,9 @@
 </ion-header>
 
 <ion-router-outlet>
-  <ion-menu menuId="info-menu" side="end" contentId="template-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>
-          Tipificações
-        </ion-title>
-        <ion-buttons slot="end">
-          <ion-menu-toggle menu="info-menu">
-            <ion-button>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-button>
-          </ion-menu-toggle>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content style="width: 500px;">
-      <ion-accordion-group>
-        <ion-accordion *ngFor="let t of tipifications" [value]="t.requestId" toggleIcon="folder-outline"
-          toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <ion-label>{{t.requestId}}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-buttons slot="end">
-              <ion-menu-toggle menu="info-menu">
-                <ion-button>
-                  <ion-icon name="info-outline"></ion-icon>
-                </ion-button>
-              </ion-menu-toggle>
-            </ion-buttons>
-            <ion-title>
-              Páginas
-            </ion-title>
-            <ion-accordion-group>
-              <ion-accordion *ngFor="let r of t.result; index as pageIndex" [value]="pageIndex"
-                toggleIcon="reader-outline" toggleIconSlot="start">
-                <ion-item slot="header" color="light">
-                  <ion-label>{{getTag(r.tags,'subtype')}} : {{r.stdType}}</ion-label>
-
-                </ion-item>
-                <div class="ion-padding" slot="content">
-                  <ion-title>
-                    Dados
-                  </ion-title>
-                  <ion-list>
-                    <ion-menu-toggle menu="info-menu" auto-hide="true" *ngFor="let f of r.fields">
-                      <ion-item (click)="insertField(f,r.stdType)" routerDirection="root"
-                        [class.active-item]="fieldSelected + f.field">
-                        <ion-icon name="pencil-outline"></ion-icon>
-                                                <ion-label>
-                          {{f.name}} - {{f.value}}
-                        </ion-label>
-                      </ion-item>
-                    </ion-menu-toggle>
-                  </ion-list>
-                </div>
-              </ion-accordion>
-            </ion-accordion-group>
-
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-
-    </ion-content>
-  </ion-menu>
 
 
-  <ion-menu menuId="pack-menu" side="end" contentId="template-content" >
+  <ion-menu menuId="pack-menu" side="end" contentId="template-content">
     <ion-header>
       <ion-toolbar>
         <ion-title>
@@ -114,8 +60,7 @@
       <div class="ion-padding">
         <ion-list>
           <ion-menu-toggle menu="pack-menu" auto-hide="true" *ngFor="let p of packs">
-            <ion-item (click)="changePack(p)" routerDirection="root"
-              [class.active-item]="selectedPack== p">
+            <ion-item (click)="changePack(p)" routerDirection="root" [class.active-item]="selectedPack== p">
               <ion-icon name="color-wand-outline" slot="start" aria-hidden="true"></ion-icon>
               <ion-label>
                 {{p.name}} ({{p.tipificacoes.length}})
@@ -127,14 +72,121 @@
     </ion-content>
   </ion-menu>
 
+  <ion-menu menuId="docs-required-menu" side="end" contentId="template-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Imagens importadas
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-toggle menu="docs-required-menu">
+            <ion-button>
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-text-center ion-padding">
+      <ion-button (click)="documentExtraction()" color="light" role="link">
+        Adicionar
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-list>
+        <ion-item (click)="editRequiredDocs(d)" *ngFor="let d of requiredsDocs">
+          <ion-thumbnail slot="start">
+
+            <pdf-viewer class="ng2-pdf-viewer-container-2" *ngIf="d.extension == 'pdf'" [src]="d.urlFile"
+              [render-text]="false" [show-all]="false" [show-borders]="false" [original-size]="false"
+              style="width: 100%; height: 100%; overflow-x: unset;" page="1">
+            </pdf-viewer>
+            <img *ngIf="d.extension != 'pdf'" alt="Imagem do documento"
+              [src]="d.urlFile || '../../../../assets/image-placeholder.webp'" />
+          </ion-thumbnail>
+          <ion-label>
+            {{d.name}}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 
 
-  <ion-content id="template-content">
-    <div class="document-editor">
-      <div class="document-editor__toolbar"></div>
-      <div class="document-editor__editable-container">
-        <div class="document-editor__editable">
-          <p>The initial editor data.</p>
+
+  <ion-content>
+    <ion-card class="card-tipification" [class.card-invisible]="panelTipifications">
+      <ion-card-header>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>
+              Tipificações
+            </ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="toglePanelTipification()">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-scroll scrollY="true">
+          <ion-accordion-group *ngIf="tipifications">
+            <ion-accordion *ngFor="let t of tipifications" [value]="t.requestId" toggleIcon="folder-outline"
+              toggleIconSlot="start">
+              <ion-item slot="header" color="light">
+                <ion-label>{{t.requestId}}</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-buttons slot="end">
+                  <ion-menu-toggle menu="info-menu">
+                    <ion-button>
+                      <ion-icon name="info-outline"></ion-icon>
+                    </ion-button>
+                  </ion-menu-toggle>
+                </ion-buttons>
+                <ion-title>
+                  Páginas
+                </ion-title>
+                <ion-accordion-group>
+                  <ion-accordion *ngFor="let r of t.result; index as pageIndex" [value]="pageIndex"
+                    toggleIcon="reader-outline" toggleIconSlot="start">
+                    <ion-item slot="header" color="light">
+                      <ion-label>{{getTag(r.tags,'subtype')}} : {{r.stdType}}</ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                      <img [src]="'data:image/jpeg;base64,'+r.image" />
+                      <ion-title>
+                        Dados
+                      </ion-title>
+                      <ion-list>
+                        <ion-item *ngFor="let f of r.fields" (click)="insertField(f,r.stdType)" routerDirection="root"
+                          [class.active-item]="fieldSelected + f.field">
+                          <ion-icon name="pencil-outline"></ion-icon>
+                          <ion-label>
+                            {{f.name}} - {{f.value}}
+                          </ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-scroll>
+      </ion-card-content>
+    </ion-card>
+
+    <div id="template-content">
+      <div class="document-editor">
+        <div class="document-editor__toolbar"></div>
+        <div class="document-editor__editable-container">
+          <div class="document-editor__editable">
+            <p>The initial editor data.</p>
+          </div>
         </div>
       </div>
     </div>

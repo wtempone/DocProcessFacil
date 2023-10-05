@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Template } from 'src/app/models/template.model';
+import { RequiredDocs, Template } from 'src/app/models/template.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

@@ -1,0 +1,71 @@
+{
+  "fields": [
+    {
+      "id": 0,
+      "name": "cpf",
+      "stdName": "cpf",
+      "value": "25373617504",
+      "score": 1
+    },
+    {
+      "id": 1,
+      "name": "data_expedicao",
+      "stdName": "issue_date",
+      "value": "2018-06-11",
+      "score": 0.99
+    },
+    {
+      "id": 2,
+      "name": "data_nascimento",
+      "stdName": "birth_date",
+      "value": "1962-10-26",
+      "score": 0.99
+    },
+    {
+      "id": 3,
+      "name": "doc_origem",
+      "stdName": "origin_document",
+      "value": "CERTIDÃO DE CASAMENTO, Nº: 29303, LIVRO: B.081, FOLHA: 140",
+      "score": 0.99
+    },
+    {
+      "id": 4,
+      "name": "filiacao_1",
+      "stdName": "parent_1",
+      "value": "MARIA DA HORA DOS SANTOS",
+      "score": 0.99
+    },
+    {
+      "id": 5,
+      "name": "filiacao_2",
+      "stdName": "parent_2",
+      "value": "ALOIZIO PAULO CERQUEIRA",
+      "score": 0.99
+    },
+    {
+      "id": 6,
+      "name": "naturalidade_cidade",
+      "stdName": "birth_city",
+      "value": "SALVADOR",
+      "score": 0.99
+    },
+    {
+      "name": "naturalidade_uf",
+      "stdName": "birth_state",
+      "value": "BA",
+      "score": 0.99
+    },
+    {
+      "name": "nome",
+      "stdName": "name",
+      "value": "GENIVALDO SANTOS CERQUEIRA",
+      "score": 0.99
+    },
+    {
+      "name": "rg",
+      "stdName": "rg",
+      "value": "0172416345",
+      "score": 0.99
+    }
+  ]
+}

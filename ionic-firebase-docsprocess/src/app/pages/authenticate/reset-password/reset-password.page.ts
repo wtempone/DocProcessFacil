@@ -45,10 +45,9 @@ export class ResetPasswordPage implements OnInit {
     const loading = await this.loadingCtrl.create({ message: "Verificando e-mail para envio..." });
     loading.present();
 
-    this.userRemoteService.getByEmail(this.form.controls['email'].value).subscribe(data => {
+    this.userRemoteService.getByEmail(this.form.controls['email'].value).subscribe((data) => {
       if (data.length > 0) {
         var user = data[0] as User;
-        debugger
         this.authenticateService.sendPasswordResetEmail(user.email!)
           .then(() => {
             this.showMessage("Foi enviado uma mensagem com um link para alteração de sua senha, acesse seu e-mail e siga as instruções.", "success");

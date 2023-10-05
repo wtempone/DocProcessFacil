@@ -42,7 +42,7 @@ export class TakePhotoPage implements AfterViewInit {
     video.classList.add("flash");
 
     setTimeout(() => {
-      this.navCtrl.navigateForward('/home-post/make-post');
+      this.navCtrl.navigateForward('/home/home-post/make-post');
     }, 1000);
   }
 }

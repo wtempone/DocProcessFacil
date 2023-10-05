@@ -10,5 +10,6 @@ export const environment = {
     measurementId: "G-HH76QSPGJZ"
   },
   localStorageKey: "docsprocess",
-  googleMapApiKey: "AIzaSyC15zWqNR6dehLfn8zsFtO5M1UhNN_3DWM"
+  googleMapApiKey: "AIzaSyC15zWqNR6dehLfn8zsFtO5M1UhNN_3DWM",
+  mostQIAPiKey: "c3b5a2d11cb34d8843e471d1a5468970"
 };

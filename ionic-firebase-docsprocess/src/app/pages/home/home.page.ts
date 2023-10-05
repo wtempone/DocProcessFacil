@@ -49,8 +49,7 @@ export class HomePage implements OnInit {
     private menuCtrl: MenuController,
     private alertCtrl: AlertController,
   ) {
-    var user = this.userLocalService.get();
-    if (user) this.user = JSON.parse(user);
+
     this.router.events.pipe(
       map((event: any) => event.routerEvent as RouterEvent),
       filter((event): event is NavigationEnd => event instanceof NavigationEnd)

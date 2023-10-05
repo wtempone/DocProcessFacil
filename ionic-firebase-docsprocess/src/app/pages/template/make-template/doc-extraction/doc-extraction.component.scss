@@ -1,0 +1,32 @@
+.file-input {
+    display: none;
+  }
+
+.dropzone { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    font-weight: 200;
+    width: 90%;
+    height: 400px;
+    border: 2px dashed;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+ 
+    &.hovering {
+        border: 2px solid #fdb18f;
+        color: #dadada !important;
+    }
+  
+    .file-label {
+        font-size: 1.2em;
+    }
+  }
+  
+  progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+  }
